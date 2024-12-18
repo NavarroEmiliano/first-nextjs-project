@@ -1,10 +1,11 @@
 import FormSearchUser from "./components/FormSearchUser";
+import UserCardInfo from "./components/UserCardInfo";
 
 const Home = () => {
   return (
     <>
       <FormSearchUser />
-      <article>todo el chamullo de la pagina</article>
+      <UserCardInfo />
     </>
   );
 };
