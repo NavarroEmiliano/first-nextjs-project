@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${spaceGrotesk.className} antialiased`}>
-        <div className="flex items-center justify-center w-full min-h-screen bg-gray-600">
-          <div className="flex flex-col border sm:w-2/3 xl:w-1/2 p-2">
+        <div className="flex items-center justify-center w-full min-h-screen bg-blue-950">
+          <div className="flex gap-2 flex-col border sm:w-2/3 xl:w-1/2 p-2">
             <Navbar />
             {children}
           </div>
