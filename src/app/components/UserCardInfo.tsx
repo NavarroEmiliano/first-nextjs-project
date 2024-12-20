@@ -1,9 +1,14 @@
+import { User } from "../types/user.type";
 import BuildingIcon from "./icons/BuildingIcon";
 import LinkIcon from "./icons/LinkIcon";
 import LocationIcon from "./icons/LocationIcon";
 import TwitterIcon from "./icons/TwitterIcon";
 
-const UserCardInfo = () => {
+interface Props {
+  user: User | null;
+}
+
+const UserCardInfo = ({ user }: Props) => {
   return (
     <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-4 text-white">
       <div className="flex flex-auto">
