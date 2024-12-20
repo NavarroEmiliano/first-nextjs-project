@@ -21,6 +21,7 @@ const FormSearchUser = ({ getUser }: Props) => {
       <input
         name="username"
         type="text"
+        autoComplete="off"
         placeholder="Search Github username..."
         className="w-full rounded-2xl bg-transparent p-2 placeholder:text-white focus:outline-none focus:outline-sky-500"
       />
