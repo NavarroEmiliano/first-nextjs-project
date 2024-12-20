@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "./components/Header";
-import { Space_Grotesk } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 
-const spaceGrotesk = Space_Grotesk({
+const robotoMono = Roboto_Mono({
   subsets: ["latin"],
 });
 
@@ -19,9 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.className} antialiased`}>
-        <div className="flex min-h-screen w-full items-center justify-center bg-slate-950">
-          <div className="flex w-96 flex-col gap-2 p-2 sm:w-[480px] md:w-[720px]">
+      <body className={`${robotoMono.className} antialiased bg-slate-950`}>
+        <div className="flex min-h-screen w-full items-center justify-center">
+          <div className="flex w-[450px] flex-col gap-2 p-2 sm:w-[500px] md:w-[720px]">
             <Navbar />
             {children}
           </div>

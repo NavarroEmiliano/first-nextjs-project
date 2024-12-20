@@ -5,7 +5,7 @@ import TwitterIcon from "./icons/TwitterIcon";
 
 const UserCardInfo = () => {
   return (
-    <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-8 text-white">
+    <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-4 text-white">
       <div className="flex flex-auto">
         <div className="h-20 w-20 min-w-20 flex-none rounded-full bg-sky-500"></div>
         <div className="flex-auto justify-between pl-4 md:grid md:grid-cols-2 md:items-center">
@@ -16,7 +16,7 @@ const UserCardInfo = () => {
       </div>
 
       <div className="flex flex-col gap-8 md:pl-24">
-        <p className="leading-loose tracking-wider">
+        <p className="leading-8 tracking-wider">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima qui
           adipisci fuga tenetur debitis quas odio vel! Dicta nam dolor
         </p>
