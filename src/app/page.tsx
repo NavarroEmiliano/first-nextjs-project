@@ -9,6 +9,7 @@ const Home = () => {
 
   const getUser = async (username: string) => {
     const res = await fetch(`https://api.github.com/users/${username}`);
+    if (res.status === 404) return;
     const data = await res.json();
     setUser(data);
   };
