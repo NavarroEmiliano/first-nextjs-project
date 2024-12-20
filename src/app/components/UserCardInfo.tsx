@@ -8,6 +8,13 @@ interface Props {
   user: User;
 }
 
+const validateAndFormatUrl = (url: string) => {
+  if (!url.startsWith("https://")) {
+    return `https://${url}`;
+  }
+  return url;
+};
+
 const UserCardInfo = ({ user }: Props) => {
   return (
     <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-4 text-white">
@@ -60,7 +67,7 @@ const UserCardInfo = ({ user }: Props) => {
               <LinkIcon className="h-4 w-4 fill-white" />
             </i>
             {user.blog ? (
-              <a href={user.blog}>{user.twitter_username}</a>
+              <a className="truncate" href={validateAndFormatUrl(user.blog)}>{user.blog}</a>
             ) : (
               <p className="text-gray-500">Not available </p>
             )}
@@ -81,7 +88,9 @@ const UserCardInfo = ({ user }: Props) => {
             <i>
               <BuildingIcon className="h-4 w-4 fill-white" />
             </i>
-            <p className={`${user.company ?? "text-gray-500"}`}>{user.company ?? 'Not available'}</p>
+            <p className={`${user.company ?? "text-gray-500"}`}>
+              {user.company ?? "Not available"}
+            </p>
           </article>
         </div>
       </div>
