@@ -22,8 +22,8 @@ export interface User {
     company: null;
     blog: string;
     location: string;
-    email: null;
-    hireable: null;
+    email?: string;
+    hireable?: string;
     bio: string;
     twitter_username: null;
     public_repos: number;

@@ -5,7 +5,7 @@ import LocationIcon from "./icons/LocationIcon";
 import TwitterIcon from "./icons/TwitterIcon";
 
 interface Props {
-  user: User | null;
+  user: User;
 }
 
 const UserCardInfo = ({ user }: Props) => {
@@ -14,29 +14,36 @@ const UserCardInfo = ({ user }: Props) => {
       <div className="flex flex-auto">
         <div className="h-20 w-20 min-w-20 flex-none rounded-full bg-sky-500"></div>
         <div className="flex-auto justify-between pl-4 md:grid md:grid-cols-2 md:items-center">
-          <p className="text-2xl font-semibold">The Octocat</p>
-          <p className="text-blue-700 md:text-right">@octocat</p>
-          <p>Joined 25 Jan 2011</p>
+          <p className="text-2xl font-semibold">{user.name}</p>
+          <p className="text-blue-700 md:text-right">@{user.login}</p>
+          <p>
+            {new Date(user.created_at || "").toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
+          </p>
         </div>
       </div>
 
-      <div className="flex flex-col gap-8 md:pl-24">
-        <p className="leading-8 tracking-wider">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima qui
-          adipisci fuga tenetur debitis quas odio vel! Dicta nam dolor
+      <div className="flex w-full flex-col gap-8 md:pl-24">
+        <p
+          className={`leading-8 tracking-wider ${user.bio ?? "text-gray-500"}`}
+        >
+          {user.bio ?? "Without bio"}
         </p>
         <div className="flex justify-around rounded-xl bg-slate-950 p-4">
           <article>
             <p>Repos</p>
-            <p className="font-bold">8</p>
+            <p className="text-center font-bold">{user.public_repos}</p>
           </article>
           <article>
             <p>Followers</p>
-            <p className="font-bold">3938</p>
+            <p className="text-center font-bold">{user.followers}</p>
           </article>
           <article>
             <p>Following</p>
-            <p className="font-bold">9</p>
+            <p className="text-center font-bold">{user.following}</p>
           </article>
         </div>
         <div className="flex flex-col gap-2 md:grid md:grid-cols-2">
@@ -44,25 +51,37 @@ const UserCardInfo = ({ user }: Props) => {
             <i>
               <LocationIcon className="h-4 w-4 fill-white" />
             </i>
-            <p>San Francisco</p>
+            <p className={`${user.location ?? "text-gray-500"}`}>
+              {user.location || "Not available"}
+            </p>
           </article>
           <article className="flex items-center gap-2">
             <i>
               <LinkIcon className="h-4 w-4 fill-white" />
             </i>
-            <p>https://github.blog</p>
+            {user.blog ? (
+              <a href={user.blog}>{user.twitter_username}</a>
+            ) : (
+              <p className="text-gray-500">Not available </p>
+            )}
           </article>
           <article className="flex items-center gap-2">
             <i>
               <TwitterIcon className="h-4 w-4 fill-white" />
             </i>
-            <p>Not Available</p>
+            {user.twitter_username ? (
+              <a href={`https://x.com/${user.twitter_username}`}>
+                {user.twitter_username}
+              </a>
+            ) : (
+              <p className="text-gray-500">Not available </p>
+            )}
           </article>
           <article className="flex items-center gap-2">
             <i>
               <BuildingIcon className="h-4 w-4 fill-white" />
             </i>
-            <p>@github</p>
+            <p className={`${user.company ?? "text-gray-500"}`}>{user.company ?? 'Not available'}</p>
           </article>
         </div>
       </div>
