@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { User } from "../types/user.type";
 import BuildingIcon from "./icons/BuildingIcon";
 import LinkIcon from "./icons/LinkIcon";
@@ -19,7 +20,14 @@ const UserCardInfo = ({ user }: Props) => {
   return (
     <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-4 text-white">
       <div className="flex flex-auto">
-        <div className="h-20 w-20 min-w-20 flex-none rounded-full bg-sky-500"></div>
+        <div className="h-20 w-20 min-w-20 flex-none overflow-hidden rounded-full">
+          <Image
+            src={user.avatar_url}
+            width={80}
+            height={80}
+            alt={`profile img user ${user.name}`}
+          />
+        </div>
         <div className="flex-auto justify-between pl-4 md:grid md:grid-cols-2 md:items-center">
           <p className="text-2xl font-semibold">{user.name}</p>
           <p className="text-blue-700 md:text-right">@{user.login}</p>
@@ -67,7 +75,9 @@ const UserCardInfo = ({ user }: Props) => {
               <LinkIcon className="h-4 w-4 fill-white" />
             </i>
             {user.blog ? (
-              <a className="truncate" href={validateAndFormatUrl(user.blog)}>{user.blog}</a>
+              <a className="truncate" href={validateAndFormatUrl(user.blog)}>
+                {user.blog}
+              </a>
             ) : (
               <p className="text-gray-500">Not available </p>
             )}
