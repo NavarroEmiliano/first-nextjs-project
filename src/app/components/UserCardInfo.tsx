@@ -20,15 +20,15 @@ const UserCardInfo = ({ user }: Props) => {
   return (
     <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-4 text-white">
       <div className="flex flex-auto">
-        <div className="h-20 w-20 min-w-20 flex-none overflow-hidden rounded-full">
+        <div className="h-24 w-24 min-w-20 flex-none overflow-hidden rounded-full">
           <Image
             src={user.avatar_url}
-            width={80}
-            height={80}
+            width={96}
+            height={96}
             alt={`profile img user ${user.name}`}
           />
         </div>
-        <div className="flex-auto justify-between pl-4 md:grid md:grid-cols-2 md:items-center">
+        <div className="flex flex-col justify-center pl-4 md:grid md:grid-cols-2 md:items-center">
           <p className="text-2xl font-semibold">{user.name}</p>
           <p className="text-blue-700 md:text-right">@{user.login}</p>
           <p>
@@ -41,7 +41,7 @@ const UserCardInfo = ({ user }: Props) => {
         </div>
       </div>
 
-      <div className="flex w-full flex-col gap-8 md:pl-24">
+      <div className="flex w-full flex-col gap-8 md:pl-28">
         <p
           className={`leading-8 tracking-wider ${user.bio ?? "text-gray-500"}`}
         >
