@@ -15,7 +15,7 @@ const FormSearchUser = ({ getUser }: Props) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex justify-between gap-4 rounded-2xl shadow-xl dark:shadow-none dark:bg-slate-900 p-4 text-white"
+      className="flex justify-between gap-4 rounded-2xl shadow-md dark:shadow-none dark:bg-slate-900 p-4 text-white"
     >
       <SearchIcon className="w-7 min-w-7 fill-blue-800 dark:fill-slate-500" />
       <input

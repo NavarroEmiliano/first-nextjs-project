@@ -18,7 +18,7 @@ const validateAndFormatUrl = (url: string) => {
 
 const UserCardInfo = ({ user }: Props) => {
   return (
-    <article className="flex flex-wrap gap-y-8 rounded-2xl p-4 text-slate-900 shadow-xl dark:bg-slate-900 dark:text-white dark:shadow-none">
+    <article className="flex flex-wrap gap-y-8 rounded-2xl p-4 text-slate-900 shadow-md dark:bg-slate-900 dark:text-white dark:shadow-none">
       <div className="flex flex-auto">
         <div className="h-24 w-24 min-w-20 flex-none overflow-hidden rounded-full">
           <Image
