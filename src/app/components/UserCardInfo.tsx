@@ -18,7 +18,7 @@ const validateAndFormatUrl = (url: string) => {
 
 const UserCardInfo = ({ user }: Props) => {
   return (
-    <article className="flex flex-wrap gap-y-8 rounded-2xl bg-slate-900 p-4 text-white">
+    <article className="flex flex-wrap gap-y-8 rounded-2xl p-4 text-slate-900 shadow-xl dark:bg-slate-900 dark:text-white dark:shadow-none">
       <div className="flex flex-auto">
         <div className="h-24 w-24 min-w-20 flex-none overflow-hidden rounded-full">
           <Image
@@ -47,7 +47,7 @@ const UserCardInfo = ({ user }: Props) => {
         >
           {user.bio ?? "Without bio"}
         </p>
-        <div className="flex justify-around rounded-xl bg-slate-950 p-4">
+        <div className="flex justify-around rounded-xl bg-blue-200 p-4 dark:bg-slate-950">
           <article>
             <p>Repos</p>
             <p className="text-center font-bold">{user.public_repos}</p>
@@ -64,7 +64,7 @@ const UserCardInfo = ({ user }: Props) => {
         <div className="flex flex-col gap-2 md:grid md:grid-cols-2">
           <article className="flex items-center gap-2">
             <i>
-              <LocationIcon className="h-4 w-4 fill-white" />
+              <LocationIcon className="h-4 w-4 fill-slate-900 dark:fill-white" />
             </i>
             <p className={`${user.location ?? "text-gray-500"}`}>
               {user.location || "Not available"}
@@ -72,7 +72,7 @@ const UserCardInfo = ({ user }: Props) => {
           </article>
           <article className="flex items-center gap-2">
             <i>
-              <LinkIcon className="h-4 w-4 fill-white" />
+              <LinkIcon className="h-4 w-4 fill-slate-900 dark:fill-white" />
             </i>
             {user.blog ? (
               <a className="truncate" href={validateAndFormatUrl(user.blog)}>
@@ -84,7 +84,7 @@ const UserCardInfo = ({ user }: Props) => {
           </article>
           <article className="flex items-center gap-2">
             <i>
-              <TwitterIcon className="h-4 w-4 fill-white" />
+              <TwitterIcon className="h-4 w-4 fill-slate-900 dark:fill-white" />
             </i>
             {user.twitter_username ? (
               <a href={`https://x.com/${user.twitter_username}`}>
@@ -96,7 +96,7 @@ const UserCardInfo = ({ user }: Props) => {
           </article>
           <article className="flex items-center gap-2">
             <i>
-              <BuildingIcon className="h-4 w-4 fill-white" />
+              <BuildingIcon className="h-4 w-4 fill-slate-900 dark:fill-white" />
             </i>
             <p className={`${user.company ?? "text-gray-500"}`}>
               {user.company ?? "Not available"}
