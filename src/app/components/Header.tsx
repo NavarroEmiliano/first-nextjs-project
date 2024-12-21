@@ -8,7 +8,10 @@ const Navbar = () => {
 
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
+    if (
+      storedTheme === "dark" || 
+      (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
       setDarkTheme(true);
       document.documentElement.classList.add("dark");
     }
